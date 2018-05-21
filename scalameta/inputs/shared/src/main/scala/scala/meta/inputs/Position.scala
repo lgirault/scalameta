@@ -41,4 +41,15 @@ object Position {
     override def text = new String(input.chars, start, end - start)
     override def toString = s"[$start..$end) in $input"
   }
+
+  final case class Offset(input: Input, offset: Int) extends Position {
+    def start : Int = offset
+    def end: Int = start
+    def startLine: Int = input.offsetToLine(start)
+    def startColumn: Int = start - input.lineToOffset(startLine)
+    def endLine: Int = startLine
+    def endColumn: Int = startColumn
+    override def text = ""
+    override def toString = s"[$start] in $input"
+  }
 }

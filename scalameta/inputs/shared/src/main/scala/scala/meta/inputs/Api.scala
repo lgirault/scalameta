@@ -30,5 +30,8 @@ private[meta] trait Aliases {
 
     type Range = scala.meta.inputs.Position.Range
     val Range = scala.meta.inputs.Position.Range
+
+    type Offset = scala.meta.inputs.Position.Offset
+    val Offset = scala.meta.inputs.Position.Offset
   }
 }

@@ -51,10 +51,12 @@ package object inputs {
     def syntax: String = pos match {
       case Position.None => s"<none>"
       case Position.Range(input, start, end) => s"${input.syntax}@$start..$end"
+      case Position.Offset(input, offset) => s"${input.syntax}@$offset"
     }
     def structure: String = pos match {
       case Position.None => s"Position.None"
       case Position.Range(input, start, end) => s"Position.Range(${input.structure}, $start, $end)"
+      case Position.Offset(input, offset) => s"Position.Range(${input.structure}, $offset)"
     }
   }
 }

@@ -63,7 +63,7 @@ trait InputOps { self: SemanticdbOps =>
       if (input == m.Input.None) m.Position.None
       else if (!pos.isDefined) m.Position.None
       else if (pos.isRange) m.Position.Range(input, pos.start, pos.end)
-      else m.Position.Range(input, pos.point, pos.point)
+      else m.Position.Offset(input, pos.point)
     }
   }
 }
